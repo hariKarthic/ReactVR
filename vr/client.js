@@ -5,7 +5,9 @@
 // Auto-generated content.
 import {VRInstance} from "react-vr-web";
 
-function init(bundle, parent, options) {
+import camera from "./../camera.vr";
+
+const init = (bundle, parent, options) => {
     const vr = new VRInstance(bundle, "ReactVR", parent, {
         // Add custom options here
         ...options,
@@ -20,7 +22,7 @@ function init(bundle, parent, options) {
     // Begin the animation loop
     vr.start();
     return vr;
-}
+};
 
 
 window.ReactVR = {init};
