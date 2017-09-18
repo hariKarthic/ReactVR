@@ -1,6 +1,5 @@
-import {Component} from "react";
-
-import {View, Pano, Sound, asset} from "react-vr";
+import React, {Component} from "react";
+import {View, Pano, Sound, asset, Text} from "react-vr";
 
 export default class FirstView extends Component {
     constructor(props) {
