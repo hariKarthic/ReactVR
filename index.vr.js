@@ -17,14 +17,20 @@ export default class ReactVR extends React.Component {
         };
     }
 
+    _onViewChange(value) {
+        this.setState({scene: value});
+    }
+
 
     render() {
 
-        let scene = <DefaultView/>;
+        let scene = <DefaultView onViewChange={(value) => this._onViewChange(value)}/>;
         if (this.state.scene === "scene1") {
-            scene = <FirstView/>;
+            console.log("Painting scene one");
+            scene = <FirstView onViewChange={() => this._onViewChange()}/>;
         } else if (this.state.scene === "scene2") {
-            scene = <FirstView/>;
+            console.log("painting scene two");
+            scene = <FirstView onViewChange={() => this._onViewChange()}/>;
         }
 
         return scene;

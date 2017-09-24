@@ -10,6 +10,8 @@ import camera from "./../camera.vr";
 const init = (bundle, parent, options) => {
     const vr = new VRInstance(bundle, "ReactVR", parent, {
         // Add custom options here
+        camera:camera,
+        cursorVisibility:"auto",
         ...options,
     });
     vr.render = function () {
