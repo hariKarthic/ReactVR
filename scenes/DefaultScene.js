@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import {Text, View, Plane, AmbientLight} from "react-vr";
 
+import Floor from "../components/Floor";
+
 export default class DefaultView extends Component {
 
 
@@ -10,12 +12,16 @@ export default class DefaultView extends Component {
             rotation: 0,
             textColor: "red"
         };
+
+        this._onInput = this._onInput.bind(this);
     }
 
-    _onPress(event) {
-
-        console.log(event);
-
+    _onInput(event) {
+        let nativeInputEvent = event.nativeEvent.inputEvent;
+        if (nativeInputEvent.type === "MouseInputEvent" && nativeInputEvent.eventType === "click") {
+            console.log("ClickeD!!!!");
+            this.props.onViewChange("scene2");
+        }
     }
 
 
@@ -26,10 +32,7 @@ export default class DefaultView extends Component {
                 <AmbientLight intensity={1}/>
                 <Plane dimWidth={10}
                        dimHeight={10}
-                       onInput={(event) => {
-                           console.log(event.type);
-
-                       }}
+                       onInput={this._onInput}
                        lit={true}
                        style={{
                            color: "#ff2728",
@@ -44,11 +47,7 @@ export default class DefaultView extends Component {
                            transform: [{translate: [20, 0, -50]}, {rotateZ: this.state.rotation}, {scale: 1}]
                        }}>
                 </Plane>
-                <Plane dimWidth={500} dimHeight={500} lit={true}
-                       style={{
-                           layoutOrigin: [0.5, 0.5]
-                           , transform: [{rotateX: -80}, {translate: [0, 30, -50]}]
-                       }}/>
+                <Floor textureUrl={"/textures/floortexture.jpg"}/>
                 <Text style={{
                     color: this.state.textColor,
                     fontSize: 0.2,
@@ -57,9 +56,8 @@ export default class DefaultView extends Component {
                     paddingRight: 0.2,
                     textAlign: "center",
                     textAlignVertical: "center",
-                    transform: [{translate: [0, 1, -3]}]
+                    transform: [{translate: [0, 0, -3]}]
                 }} onExit={() => {
-                    this.props.onViewChange("scene2");
                     this.setState({textColor: "blue"});
                 }}
                       onEnter={() => this.setState({textColor: "green"})}>

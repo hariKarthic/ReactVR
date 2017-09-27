@@ -10,7 +10,7 @@ export default class Floor extends PureComponent {
 
     render() {
 
-        return (  <Plane dimWidth={50} dimHeight={50} lit={true}
+        return (  <Plane dimWidth={100} dimHeight={100} lit={true}
                          texture={asset(this.props.textureUrl)}
                          style={{
                              layoutOrigin: [0.5, 0.5]
@@ -21,5 +21,5 @@ export default class Floor extends PureComponent {
 }
 
 Floor.propTypes = {
-    textureUrl : PropTypes.string
+    textureUrl: PropTypes.string
 };
