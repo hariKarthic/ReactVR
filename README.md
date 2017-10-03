@@ -9,4 +9,7 @@
 
 **Attributions**
 
-* Stone wall - Asset(https://sketchfab.com/models/9332abd99fbf48f59612abbed03b409b) by noxfcna(https://sketchfab.com/noxfcna) is licensed under CC Attribution(http://creativecommons.org/licenses/by/4.0/) 
+* Sheep sounds - http://soundbible.com/1662-Farm.html
+* Eagle sounds - http://soundbible.com/1487-Eaglet-Bird-2.html
+* Building Pano = https://www.flickr.com/photos/117457333@N04/
+ 
