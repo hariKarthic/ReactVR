@@ -5,7 +5,9 @@
  */
 
 import React, {Component} from "react";
-import {View, Pano, Plane, Model, asset, AmbientLight, PointLight} from "react-vr";
+import {View, Model, asset, AmbientLight} from "react-vr";
+
+import Floor from "../components/Floor";
 
 
 export default class SecondScene extends Component {
@@ -19,13 +21,14 @@ export default class SecondScene extends Component {
 
         return (<View>
             <AmbientLight intensity={1}/>
-            <Model lit={true} style={{transform: [{translate: [0, 0, -10]}]}}
-                   texture={asset("/textures/doortexture.jpg")}
+
+            <Model lit={true} style={{transform: [{translate: [1, -1, -20]}]}}
                    source={{
-                       obj: asset("/models/door.obj"),
+                       obj: asset("/models/part.obj"),
+                       mtl: asset("/models/part.mtl")
                    }}/>
 
-
+            <Floor textureUrl={"/textures/lowpolyfloor.png"}/>
         </View>);
 
     }

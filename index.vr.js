@@ -7,6 +7,7 @@ import {
 import FirstScene from "./scenes/FirstScene";
 import DefaultScene from "./scenes/DefaultScene";
 import SecondScene from "./scenes/SecondScene";
+import ThirdScene from "./scenes/ThirdScene";
 
 export default class ReactVR extends React.Component {
 
@@ -26,11 +27,11 @@ export default class ReactVR extends React.Component {
 
         let scene = <DefaultScene onViewChange={(value) => this._onViewChange(value)}/>;
         if (this.state.scene === "scene1") {
-            console.log("Painting scene one");
             scene = <FirstScene onViewChange={(value) => this._onViewChange(value)}/>;
         } else if (this.state.scene === "scene2") {
-            console.log("painting scene two");
             scene = <SecondScene onViewChange={(value) => this._onViewChange(value)}/>;
+        } else if(this.state.scene==="scene3") {
+            scene = <ThirdScene/>;
         }
 
         return scene;

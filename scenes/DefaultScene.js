@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import {Text, View, Plane, asset, Model,AmbientLight} from "react-vr";
+import {Text, View, asset, Model, AmbientLight} from "react-vr";
+import PropTypes from "prop-types";
 
 import Floor from "../components/Floor";
 
@@ -20,11 +21,12 @@ export default class DefaultView extends Component {
         let nativeInputEvent = event.nativeEvent.inputEvent;
         console.log(event.nativeEvent);
         if (nativeInputEvent.type === "MouseInputEvent" && nativeInputEvent.eventType === "click") {
-            console.log("ClickeD!!!!");
             if (event.nativeEvent.target === 6) {
                 this.props.onViewChange("scene1");
             } else if (event.nativeEvent.target === 7) {
                 this.props.onViewChange("scene2");
+            } else {
+                this.props.onViewChange("scene3");
             }
         }
     }
@@ -35,7 +37,7 @@ export default class DefaultView extends Component {
 
             <View style={{backgroundColor: "#fff"}}>
                 <AmbientLight intensity={1}/>
-             {/*   <Plane dimWidth={10}
+                {/*   <Plane dimWidth={10}
                        dimHeight={10}
                        onInput={this._onInput}
                        lit={true}
@@ -47,20 +49,29 @@ export default class DefaultView extends Component {
                 <Model
                     onInput={this._onInput}
                     lit={true} style={{transform: [{translate: [-2.5, -1.5, -5]}]}}
-                       texture={asset("/textures/doortexture.jpg")}
-                       source={{
-                           obj: asset("/models/door.obj"),
-                       }}/>
-
-                <Model
-                    onInput={this._onInput}
-                    lit={true} style={{transform: [{translate: [2, -1.5, -5]}]}}
                     texture={asset("/textures/doortexture.jpg")}
                     source={{
                         obj: asset("/models/door.obj"),
                     }}/>
 
-             {/*   <Plane dimWidth={10}
+                <Model
+                    onInput={this._onInput}
+                    lit={true} style={{transform: [{translate: [0, -1.5, -5]}]}}
+                    texture={asset("/textures/doortexture.jpg")}
+                    source={{
+                        obj: asset("/models/door.obj"),
+                    }}/>
+
+
+                <Model
+                    onInput={this._onInput}
+                    lit={true} style={{transform: [{translate: [2.5, -1.5, -5]}]}}
+                    texture={asset("/textures/doortexture.jpg")}
+                    source={{
+                        obj: asset("/models/door.obj"),
+                    }}/>
+
+                {/*   <Plane dimWidth={10}
                        dimHeight={10}
                        lit={true}
                        onInput={this._onInput}
@@ -72,12 +83,13 @@ export default class DefaultView extends Component {
                 <Floor textureUrl={"/textures/floortexture.jpg"}/>
                 <Text style={{
                     color: this.state.textColor,
+                    layoutOrigin: [0.5, 0.5],
                     fontSize: 0.2,
                     paddingLeft: 0.2,
                     paddingRight: 0.2,
                     textAlign: "center",
                     textAlignVertical: "center",
-                    transform: [{translate: [-1, 0, -3]}]
+                    transform: [{translate: [0, 1, -3]}]
                 }} onExit={() => {
                     this.setState({textColor: "blue"});
                 }}
@@ -89,3 +101,8 @@ export default class DefaultView extends Component {
 
 
 }
+
+
+DefaultView.propTypes = {
+    onViewChange: PropTypes.func
+};

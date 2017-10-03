@@ -2,6 +2,11 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {Plane, asset} from "react-vr";
 
+/**
+ * TODO: Set Floor to a more appealing posittion. Find out good coordinates for floor.Find a way to repeat textures across the floor
+ *
+ * */
+
 export default class Floor extends PureComponent {
 
     constructor(props) {
@@ -22,4 +27,9 @@ export default class Floor extends PureComponent {
 
 Floor.propTypes = {
     textureUrl: PropTypes.string
+};
+
+
+Floor.defaultProps = {
+    textureUrl:"/textures/floortexture.jpg"
 };
