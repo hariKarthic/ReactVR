@@ -24,7 +24,7 @@ export default class DefaultView extends Component {
             if (event.nativeEvent.target === 6) {
                 this.props.onViewChange("scene1");
             } else if (event.nativeEvent.target === 7) {
-                this.props.onViewChange("scene2");
+                this.props.onViewChange("scene4");
             } else {
                 this.props.onViewChange("scene3");
             }
@@ -48,7 +48,7 @@ export default class DefaultView extends Component {
                 </Plane>*/}
                 <Model
                     onInput={this._onInput}
-                    lit={true} style={{transform: [{translate: [-2.5, -1.5, -5]}]}}
+                    lit={true} style={{transform: [{translate: [-2.5, -1.5, -3]}]}}
                     texture={asset("/textures/doortexture.jpg")}
                     source={{
                         obj: asset("/models/door.obj"),
@@ -56,7 +56,7 @@ export default class DefaultView extends Component {
 
                 <Model
                     onInput={this._onInput}
-                    lit={true} style={{transform: [{translate: [0, -1.5, -5]}]}}
+                    lit={true} style={{transform: [{translate: [0, -1.5, -3]}]}}
                     texture={asset("/textures/doortexture.jpg")}
                     source={{
                         obj: asset("/models/door.obj"),
@@ -65,7 +65,7 @@ export default class DefaultView extends Component {
 
                 <Model
                     onInput={this._onInput}
-                    lit={true} style={{transform: [{translate: [2.5, -1.5, -5]}]}}
+                    lit={true} style={{transform: [{translate: [2.5, -1.5, -3]}]}}
                     texture={asset("/textures/doortexture.jpg")}
                     source={{
                         obj: asset("/models/door.obj"),

@@ -1,5 +1,5 @@
 import React, {PureComponent} from "react";
-import {View, AmbientLight, asset, Box, Cylinder, Sphere} from "react-vr";
+import {View, PointLight, AmbientLight, asset, Box, Cylinder, Sphere} from "react-vr";
 
 
 import Floor from "../components/Floor";
@@ -16,7 +16,13 @@ export default class ThirdScene extends PureComponent {
 
 
         return (<View>
+            <PointLight decay={2} style={
+                {
+                    transform: [{translate: [0, 2, -5]}, {rotateZ: -45}]
+                }
+            } intensity={1}/>
             <AmbientLight intensity={1}/>
+
             <Cylinder
                 style={{transform: [{translate: [0, -1.5, -5]}]}}
                 texture={asset("/textures/blue.jpg")} lit={true}
