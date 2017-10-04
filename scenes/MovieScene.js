@@ -12,7 +12,7 @@ export default class MovieScene extends PureComponent {
     }
 
     render() {
-        return (<View>
+        return (<View style={{flex:1}}>
             <Pano source={asset("/panos/buildingpano.jpg")}>
 
                 <Text style={{
@@ -22,7 +22,14 @@ export default class MovieScene extends PureComponent {
                     textAlignVertical: "center",
                     transform: [{translate: [0, 0, -3]}]
                 }}>Movie</Text>
-                <Movie/>
+                <View style={{
+                    flex: 1, width: 5, flexDirection: "column", alignItems: "strech", backgroundColor: "#333333",
+                    layoutOrigin: [0.5, 0.5],
+                    transform: [{translate: [0, 0, -5]}]
+                }}>
+                    <Movie/>
+
+                </View>
             </Pano>
 
         </View>);

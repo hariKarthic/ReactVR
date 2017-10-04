@@ -7,10 +7,15 @@ import {VRInstance} from "react-vr-web";
 
 import camera from "./../camera.vr";
 
+import * as SimpleRayCaster from "../raycaster.vr";
+
 const init = (bundle, parent, options) => {
     const vr = new VRInstance(bundle, "ReactVR", parent, {
         // Add custom options here
         camera: camera, /*Passing custom camera to the VRInstance*/
+        raycasters: [
+            SimpleRayCaster
+        ],
         cursorVisibility: "auto",
         ...options,
     });

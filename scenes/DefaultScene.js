@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Text, View, asset, Model, AmbientLight} from "react-vr";
+import {Text, View, asset, Box, Model, AmbientLight} from "react-vr";
 import PropTypes from "prop-types";
 
 import Floor from "../components/Floor";
@@ -15,6 +15,12 @@ export default class DefaultView extends Component {
         };
 
         this._onInput = this._onInput.bind(this);
+    }
+
+    componentDidMount() {
+    }
+
+    componentWillUnmount() {
     }
 
     _onInput(event) {
@@ -37,65 +43,27 @@ export default class DefaultView extends Component {
 
             <View style={{backgroundColor: "#fff"}}>
                 <AmbientLight intensity={1}/>
-                {/*   <Plane dimWidth={10}
-                       dimHeight={10}
-                       onInput={this._onInput}
-                       lit={true}
-                       style={{
-                           color: "#ff2728",
-                           transform: [{translate: [-20, 0, -50]}, {rotateZ: this.state.rotation}, {scale: 1}]
-                       }}>
-                </Plane>*/}
-                <Model
+                <Box
                     onInput={this._onInput}
-                    lit={true} style={{transform: [{translate: [-2.5, -1.5, -3]}]}}
-                    texture={asset("/textures/doortexture.jpg")}
-                    source={{
-                        obj: asset("/models/door.obj"),
-                    }}/>
+                    lit={true} style={{transform: [{translate: [-2.5, -1, -3]}, {rotateY: this.state.rotation}]}}
+                    texture={asset("/textures/blue.jpg")}
+                />
 
-                <Model
+                <Box
                     onInput={this._onInput}
-                    lit={true} style={{transform: [{translate: [0, -1.5, -3]}]}}
-                    texture={asset("/textures/doortexture.jpg")}
-                    source={{
-                        obj: asset("/models/door.obj"),
-                    }}/>
+                    lit={true} style={{transform: [{translate: [0, -1, -3]}, {rotateX: this.state.rotation}]}}
+                    texture={asset("/textures/red.jpg")
+                    }/>
 
 
-                <Model
+                <Box
                     onInput={this._onInput}
-                    lit={true} style={{transform: [{translate: [2.5, -1.5, -3]}]}}
-                    texture={asset("/textures/doortexture.jpg")}
-                    source={{
-                        obj: asset("/models/door.obj"),
-                    }}/>
+                    lit={true} style={{transform: [{translate: [2.5, -1, -3]}, {rotateY: this.state.rotation}]}}
+                    texture={asset("/textures/yellow.jpg")}
+                />
 
-                {/*   <Plane dimWidth={10}
-                       dimHeight={10}
-                       lit={true}
-                       onInput={this._onInput}
-                       style={{
-                           color: "#ff424d",
-                           transform: [{translate: [20, 0, -50]}, {rotateZ: this.state.rotation}, {scale: 1}]
-                       }}>
-                </Plane>*/}
                 <Floor textureUrl={"/textures/floortexture.jpg"}/>
-                <Text style={{
-                    color: this.state.textColor,
-                    layoutOrigin: [0.5, 0.5],
-                    fontSize: 0.2,
-                    paddingLeft: 0.2,
-                    paddingRight: 0.2,
-                    textAlign: "center",
-                    textAlignVertical: "center",
-                    transform: [{translate: [0, 1, -3]}]
-                }} onExit={() => {
-                    this.setState({textColor: "blue"});
-                }}
-                      onEnter={() => this.setState({textColor: "green"})}>
-                    Welcome
-                </Text>
+
             </View>);
     }
 
