@@ -1,8 +1,10 @@
 import React, {PureComponent} from "react";
+import PropTypes from "prop-types";
 
 import {Text, View, Pano, asset} from "react-vr";
 
-import Movie from "../components/Movie";
+import MoviePlayer from "../components/MoviePlayer";
+import BackButton from "../components/BackButton";
 
 export default class MovieScene extends PureComponent {
 
@@ -12,26 +14,32 @@ export default class MovieScene extends PureComponent {
     }
 
     render() {
-        return (<View style={{flex:1}}>
-            <Pano source={asset("/panos/buildingpano.jpg")}>
-
-                <Text style={{
-                    backgroundColor: "#00dded", color: "#000", textAlign: "center",
-                    layoutOrigin: [0.5, 0.5],
-                    fontSize: 1,
-                    textAlignVertical: "center",
-                    transform: [{translate: [0, 0, -3]}]
-                }}>Movie</Text>
+        return (
+            <Pano source={asset("/panos/outdoor.jpg")}>
+                <BackButton/>
                 <View style={{
-                    flex: 1, width: 5, flexDirection: "column", alignItems: "strech", backgroundColor: "#333333",
+                    flex: 1,
+                    flexDirection: "column",
                     layoutOrigin: [0.5, 0.5],
-                    transform: [{translate: [0, 0, -5]}]
+                    justifyContent: "space-around",
+                    alignItems: "center"
                 }}>
-                    <Movie/>
 
-                </View>
-            </Pano>
-
-        </View>);
+                    <View style={{
+                        backgroundColor: "aquamarine", width: 1, transform: [{translate: [0, 0, -5]}]
+                    }}>
+                        <Text style={{
+                            flex: 1,
+                            color: "#000", textAlign: "center",
+                            fontSize: 0.2,
+                            textAlignVertical: "center",
+                        }}>Movie</Text>
+                    </View>
+                    <MoviePlayer movieData={this.props.movieData}/>
+                </View></Pano>);
     }
 }
+
+MovieScene.propTypes = {
+    movieData: PropTypes.string
+};

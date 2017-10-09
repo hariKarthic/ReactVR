@@ -3,7 +3,6 @@ import {View, PointLight, AmbientLight, Animated, asset, Box, Cylinder, Sphere} 
 
 import {Easing} from "react-native";
 
-
 import Floor from "../components/Floor";
 
 export default class ThirdScene extends PureComponent {
@@ -21,23 +20,26 @@ export default class ThirdScene extends PureComponent {
         Animated.timing(this.state.rotateYValue, {
             toValue: 360,
             duration: 1000,
-            delay: 1000,
-            easing: Easing.ease,
+            easing: Easing.linear,
         }).start(() => this._spinAnimation());
     }
 
-
     _dropAnimation() {
         this.state.translateValue.setValue(2);
+        Animated.spring(this.state.translateValue, {
+            toValue: -1.7,
+            friction: 3,
+            tension: 2
+        }).start((...args) => this._pullUpAnimation());
+    }
 
+    _pullUpAnimation() {
+        this.state.translateValue.setValue(-1.7);
         Animated.timing(this.state.translateValue, {
-            toValue: -1.5,
+            toValue: 2,
             duration: 1000,
-            delay: 1000,
-            direction: "reverse",
-            easing: Easing.linear
+            easing: Easing.linear,
         }).start(() => this._dropAnimation());
-
     }
 
     componentDidMount() {
@@ -82,24 +84,17 @@ export default class ThirdScene extends PureComponent {
                             wireframe={false}
                             texture={asset("/textures/red.jpg")}
                             radius={0.5}
-                            style={{transform: [{translate: [2, 1, -5]}, {rotateY: rotateYSpin}]}}
+                            style={{transform: [{translateY: this.state.translateValue}, {translateZ: -3}, {translateX: 2.5}]}}
                             widthSegments={20}
                             heightSegments={12}
 
             />
-            <Cylinder color={"red"} lit={true}
-                      texture={asset("/textures/red.jpg")}
-                      style={{transform: [{translate: [1.5, 1.5, -5]}]}}
-                      radiusTop={0}
-                      radiusBottom={1}
-                      dimHeight={2}
-                      segments={12}
-            />
+
             <AnimatedBox lit={true}
                          wireframe={false}
                          texture={asset("/textures/yellow.jpg")}
                          style={
-                             {transform: [{translateY: this.state.translateValue},{rotateY:rotateYSpin}]}
+                             {transform: [{translateY: 2}, {translateZ: -3}, {rotateY: rotateYSpin}]}
                          }
                          dimWidth={1}
                          dimDepth={1}
