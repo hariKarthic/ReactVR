@@ -27,6 +27,7 @@ Clone or download
 * Sheep sounds - http://soundbible.com/1662-Farm.html
 * Eagle sounds - http://soundbible.com/1487-Eaglet-Bird-2.html
 * Building Pano - https://www.flickr.com/photos/117457333@N04/
+* 360 Video - https://vimeo.com/215984568
  
  
  **WIP**
