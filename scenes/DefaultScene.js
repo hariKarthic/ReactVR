@@ -33,7 +33,7 @@ export default class DefaultView extends Component {
             if (event.nativeEvent.target === 14) {
                 this.props.onViewChange("scene1");
             } else if (event.nativeEvent.target === 9) {
-                this.props.onViewChange("scene4");
+                this.props.onViewChange("scene5");
             } else {
                 this.props.onViewChange("scene3");
             }

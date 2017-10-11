@@ -10,6 +10,7 @@ import FirstScene from "./scenes/FirstScene";
 import DefaultScene from "./scenes/DefaultScene";
 import SecondScene from "./scenes/SecondScene";
 import ThirdScene from "./scenes/ThirdScene";
+import FifthScene from "./scenes/FifthScene";
 
 import MovieScene from "./scenes/MovieScene";
 
@@ -20,8 +21,7 @@ export default class ReactVR extends React.Component {
         this.state = {
             scene: "default",
             movieData: null
-        }
-        ;
+        };
 
     }
 
@@ -52,6 +52,8 @@ export default class ReactVR extends React.Component {
             scene = <ThirdScene/>;
         } else if (this.state.scene === "scene4") {
             scene = <MovieScene movieData={this.state.movieData}/>;
+        }else if (this.state.scene ==="scene5"){
+            scene =<FifthScene/>;
         }
 
         return scene;
