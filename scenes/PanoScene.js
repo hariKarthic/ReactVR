@@ -5,7 +5,7 @@ import {View, Pano, asset, Sound, Text} from "react-vr";
 /**
  * TODO: Hover over farm and show sometext,
  * TODO: Find out positional audio*/
-export default class FirstScene extends Component {
+export default class PanoScene extends Component {
     constructor(props) {
         super(props);
     }

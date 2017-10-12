@@ -2,7 +2,7 @@ import React from "react";
 import {VideoPano, VideoControl, View, MediaPlayerState, asset} from "react-vr";
 
 
-export default class MovieThreeSixty extends React.PureComponent {
+export default class PanoVideoScene extends React.PureComponent {
 
     constructor(props) {
         super(props);

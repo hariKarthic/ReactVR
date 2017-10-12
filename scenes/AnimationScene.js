@@ -10,7 +10,7 @@ import Floor from "../components/Floor";
 
 const SOUND_BALLDROP = asset("/sounds/ball_bounce.wav");
 
-export default class ThirdScene extends PureComponent {
+export default class AnimationScene extends PureComponent {
 
     constructor(props) {
         super(props);
