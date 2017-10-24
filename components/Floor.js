@@ -31,5 +31,5 @@ Floor.propTypes = {
 
 
 Floor.defaultProps = {
-    textureUrl:"/textures/floortexture.jpg"
+    textureUrl: "/textures/floortexture.jpg"
 };

@@ -1,18 +1,20 @@
-###  ReactVR Demo
+###  ReactVR Trials
 
 ------
-
 Some models,scenes and some primitive animation trials.
 
-Tested on Google Cartboard v2. 
+
+Demo can be found [here on Heroku](https://react-we-are.herokuapp.com/index.html)
+
 
 WebVR seems to work properly in [Firefox Nightly](https://www.mozilla.org/en-US/firefox/58.0a1/releasenotes/) on desktops.Kindly download that.
 
-Clone or download 
-
-`npm install`
-
+Clone or download the repository and 
+ `npm install`
+ &&
 `npm start`
+
+
 
 
 
