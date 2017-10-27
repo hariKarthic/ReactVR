@@ -1,18 +1,20 @@
-###  ReactVR Demo
+###  ReactVR Trials
 
 ------
-
 Some models,scenes and some primitive animation trials.
 
-Tested on Google Cartboard v2. 
+
+Demo can be found [here on Heroku](https://react-we-are.herokuapp.com/index.html)
+
 
 WebVR seems to work properly in [Firefox Nightly](https://www.mozilla.org/en-US/firefox/58.0a1/releasenotes/) on desktops.Kindly download that.
 
-Clone or download 
-
-`npm install`
-
+Clone or download the repository and 
+ `npm install`
+ &&
 `npm start`
+
+
 
 
 
@@ -27,6 +29,9 @@ Clone or download
 * Sheep sounds - http://soundbible.com/1662-Farm.html
 * Eagle sounds - http://soundbible.com/1487-Eaglet-Bird-2.html
 * Building Pano - https://www.flickr.com/photos/117457333@N04/
+* 360 Video - https://vimeo.com/215984568
+* xmas tree - https://free3d.com/3d-model/low-poly-cartoon-pine-christmas-tree-47325.html
+
  
  
  **WIP**

@@ -6,10 +6,11 @@ import {
     AppRegistry,
 } from "react-vr";
 
-import FirstScene from "./scenes/FirstScene";
+import PanoScene from "./scenes/PanoScene";
 import DefaultScene from "./scenes/DefaultScene";
-import SecondScene from "./scenes/SecondScene";
-import ThirdScene from "./scenes/ThirdScene";
+import CustomModelScene from "./scenes/CustomModelScene";
+import AnimationScene from "./scenes/AnimationScene";
+import PanoVideoScene from "./scenes/PanoVideoScene";
 
 import MovieScene from "./scenes/MovieScene";
 
@@ -20,16 +21,13 @@ export default class ReactVR extends React.Component {
         this.state = {
             scene: "default",
             movieData: null
-        }
-        ;
+        };
 
     }
 
     componentDidMount() {
         console.log("Going to make Async calls!!");
         axios.get("https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=10&regionCode=IN&key=AIzaSyAK5HZ_j5WS1M2brpgrsGj6EDeEwTwHHEc").then((resp) => {
-
-
             console.log(resp);
         }).catch((err) => {
             console.log(err);
@@ -44,14 +42,16 @@ export default class ReactVR extends React.Component {
     render() {
 
         let scene = <DefaultScene onViewChange={(value) => this._onViewChange(value)}/>;
-        if (this.state.scene === "scene1") {
-            scene = <FirstScene onViewChange={(value) => this._onViewChange(value)}/>;
-        } else if (this.state.scene === "scene2") {
-            scene = <SecondScene onViewChange={(value) => this._onViewChange(value)}/>;
-        } else if (this.state.scene === "scene3") {
-            scene = <ThirdScene/>;
-        } else if (this.state.scene === "scene4") {
+        if (this.state.scene === "pano") {
+            scene = <PanoScene onViewChange={(value) => this._onViewChange(value)}/>;
+        } else if (this.state.scene === "custom") {
+            scene = <CustomModelScene onViewChange={(value) => this._onViewChange(value)}/>;
+        } else if (this.state.scene === "anim") {
+            scene = <AnimationScene/>;
+        } else if (this.state.scene === "movie") {
             scene = <MovieScene movieData={this.state.movieData}/>;
+        } else if (this.state.scene === "panomovie") {
+            scene = <PanoVideoScene/>;
         }
 
         return scene;
