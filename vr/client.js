@@ -3,11 +3,18 @@
 // If you want to modify your application, start in "index.vr.js"
 
 // Auto-generated content.
+
+import * as THREE from "three";
 import {VRInstance} from "react-vr-web";
-
 import camera from "./../camera.vr";
-
 import * as SimpleRayCaster from "../raycaster.vr";
+
+import scene from "../custom_objects/scene.custom.js";
+import cube from "../custom_objects/cube.custom.js";
+
+
+scene.add(cube); /*adding the custom cube to the scene*/
+
 
 const init = (bundle, parent, options) => {
     const vr = new VRInstance(bundle, "ReactVR", parent, {
@@ -16,6 +23,7 @@ const init = (bundle, parent, options) => {
         raycasters: [
             SimpleRayCaster
         ],
+        scene:scene,/*Adding the custom scene which has the custom THREEJS cube*/
         cursorVisibility: "auto",
         ...options,
     });

@@ -33,13 +33,13 @@ export default class DefaultView extends Component {
             if (prop_id === "redbox") {
                 this.props.onViewChange("pano");
             } else if (prop_id === "bluebox") {
-                this.props.onViewChange("anim");
+                this.props.onViewChange("movie");
             } else if (prop_id === "videobox") {
                 this.props.onViewChange("panomovie");
             } else if (prop_id === "custombox") {
                 this.props.onViewChange("custom");
             } else {
-                this.props.onViewChange("movie");
+                this.props.onViewChange("anim");
             }
         }
     }
