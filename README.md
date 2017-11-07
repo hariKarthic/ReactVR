@@ -15,7 +15,15 @@ Clone or download the repository and
 `npm start`
 
 
+** Build and Deploying
 
+Using heroku for deploying, one caveat is that you have to trick heroku into accepting the app as one of the presets that heroku has.Hence the extra PHP file that is present inside the `build` folder.
+
+Steps:
+* run `npm build` you should get a `build` folder in your root directory.
+* copy your index.html into your `build` folder and make sure you have changed the script references in the index.html.
+* copy all your static assets into a `static_assets` folder inside `build` folder or whatever is the folder name you had chosen while developement.
+* deploy to your remote heroku instance.
 
 
 **Resource Links** 
