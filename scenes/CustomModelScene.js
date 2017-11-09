@@ -6,8 +6,8 @@
 
 import React, {Component} from "react";
 import {View, Model, asset, AmbientLight, Pano, PointLight} from "react-vr";
-
 import Floor from "../components/Floor";
+const Particle = require("../custom_objects/Particle");
 
 
 export default class CustomModelScene extends Component {
@@ -19,7 +19,8 @@ export default class CustomModelScene extends Component {
     render() {
 
 
-        return (<Pano style={{tintColor: "aliceblue"}}>
+        return (<Pano style={{tintColor: "#000"}}>
+            <Particle/>
             <AmbientLight intensity={1}/>
             <PointLight intensity={1} decay={2}
                         style={{
