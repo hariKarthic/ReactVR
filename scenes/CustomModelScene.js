@@ -7,20 +7,40 @@
 import React, {Component} from "react";
 import {View, Model, asset, AmbientLight, Pano, PointLight} from "react-vr";
 import Floor from "../components/Floor";
-const Particle = require("../custom_objects/Particle");
+
+import Particle from "../custom_objects/Particle";
 
 
 export default class CustomModelScene extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            particleRotationX: 0
+        };
+        this.rotateParticles = this.rotateParticles.bind(this);
+
 
     }
 
+    rotateParticles() {
+        let particleRotation = this.state.particleRotationX;
+        this.setState({particleRotationX: particleRotation + 0.1});
+        this.animkey = requestAnimationFrame(this.rotateParticles);
+    }
+
+    componentDidMount() {
+        console.log("MOUNTED!!!");
+        this.rotateParticles();
+    }
+
+    componentWillUnmount() {
+        cancelAnimationFrame(this.animkey);
+    }
+
+
     render() {
-
-
         return (<Pano style={{tintColor: "#000"}}>
-            <Particle/>
+            <Particle rotationX={this.state.particleRotationX}/>
             <AmbientLight intensity={1}/>
             <PointLight intensity={1} decay={2}
                         style={{
@@ -28,25 +48,24 @@ export default class CustomModelScene extends Component {
                             color: "white",
                             transform: [{translate: [0, 500, 700]}]
                         }}/>
-
-            <Model lit={true} style={{transform: [{translate: [0, -1.5, -10]}, {scale:1}]}}
+            <Model lit={true} style={{transform: [{translate: [0, -1.5, -10]}, {scale: 1}]}}
                    source={{
                        obj: asset("/models/CartoonTree.obj"),
                        mtl: asset("/models/CartoonTree.mtl")
                    }}/>
 
-            <Model lit={true} style={{transform: [{translate: [2, -1.5, -16]}, {scale:1}]}}
+            <Model lit={true} style={{transform: [{translate: [2, -1.5, -16]}, {scale: 1}]}}
                    source={{
                        obj: asset("/models/CartoonTree.obj"),
                        mtl: asset("/models/CartoonTree.mtl")
                    }}/>
-            <Model lit={true} style={{transform: [{translate: [-10, -1.5, -13]}, {scale:1}]}}
+            <Model lit={true} style={{transform: [{translate: [-10, -1.5, -13]}, {scale: 1}]}}
                    source={{
                        obj: asset("/models/CartoonTree.obj"),
                        mtl: asset("/models/CartoonTree.mtl")
                    }}/>
 
-            <Model lit={true} style={{transform: [{translate: [7, -1.5, -9]}, {scale:1}]}}
+            <Model lit={true} style={{transform: [{translate: [7, -1.5, -9]}, {scale: 1}]}}
                    source={{
                        obj: asset("/models/CartoonTree.obj"),
                        mtl: asset("/models/CartoonTree.mtl")

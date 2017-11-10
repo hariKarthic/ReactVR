@@ -9,12 +9,10 @@ import {VRInstance} from "react-vr-web";
 
 /*custom objects using threejs*/
 import * as SimpleRayCaster from "../raycaster.vr";
-import RCTParticle from "../custom_objects/RCTParticle.js"
+import RCTParticle from "../custom_objects/RCTParticle.js";
 import camera from "./../camera.vr";
 import scene from "../custom_objects/scene.custom.js";
 import cube from "../custom_objects/cube.custom.js";
-import starField from "../custom_objects/particles.custom.js";
-
 
 scene.add(cube); //Adding the cube to the scene.
 
@@ -26,9 +24,9 @@ const init = (bundle, parent, options) => {
         raycasters: [
             SimpleRayCaster
         ],
-        scene:scene,/*Adding the custom scene which has the custom THREEJS cube*/
+        scene: scene, /*Adding the custom scene which has the custom THREEJS cube*/
         cursorVisibility: "auto",
-        customViews: [{name: 'Particle', view: RCTParticle}],
+        customViews: [{name: "Particle", view: RCTParticle}],
         ...options,
     });
     vr.render = function () {

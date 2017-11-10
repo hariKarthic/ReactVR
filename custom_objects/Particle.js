@@ -1,44 +1,75 @@
+import React from "react";
 
-import React from 'react';
-
-const NativeMethodsMixin = require('NativeMethodsMixin');
-const LayoutAndTransformPropTypes = require('LayoutAndTransformPropTypes');
-const ReactNativeViewAttributes = require('ReactNativeViewAttributes');
-const requireNativeComponent = require('requireNativeComponent');
-
-import {Text, View, asset, Box, Pano} from "react-vr";
-
-import PropTypes from 'prop-types';
+const NativeMethodsMixin = require("NativeMethodsMixin");
+const ReactNativeViewAttributes = require("ReactNativeViewAttributes");
+const requireNativeComponent = require("requireNativeComponent");
 
 
-const Particle = React.createClass({
-  mixins: [NativeMethodsMixin],
+import PropTypes from "prop-types";
 
-  propTypes: {
-    ...View.propTypes,
-  },
 
-  viewConfig: {
-    uiViewClassName: 'ParticleEffect',
-    validAttributes: {
-      ...ReactNativeViewAttributes.RCTView,
-      intensity: true,
-    },
-  },
+export default class Particle extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
-  getDefaultProps: function() {
-    return {};
-  },
 
-  render: function() {
-    return (
-      <RKParticle/>
-    );
-  },
+    componentWillReceiveProps(newProps) {
+        console.log("component receiving props");
+    }
+
+    componentWillUpdate(nextProps) {
+        console.log("component will update", nextProps);
+    }
+
+
+    render() {
+        return (
+            <RKParticle/>
+        );
+    }
+
+}
+
+
+Particle.propTypes = {
+    rotationX: PropTypes.number
+};
+
+Particle.defaultProps = {
+    rotationX: 10
+};
+
+/*    Particle = React.createClass({
+        mixins: [NativeMethodsMixin],
+
+        propTypes: {
+            ...View.propTypes,
+            rotationX: PropTypes.number,
+        },
+
+        viewConfig: {
+            uiViewClassName: "ParticleEffect",
+            validAttributes: {
+                ...ReactNativeViewAttributes.RCTView,
+                rotationX: true,
+            },
+        },
+
+        getDefaultProps: function () {
+            return {
+                rotationX: 10
+            };
+        },
+
+        render: function () {
+            return (
+                <RKParticle/>
+            );
+        },
+    });
+
+    */
+const RKParticle = requireNativeComponent("Particle", Particle, {
+    nativeOnly: {},
 });
-
-const RKParticle = requireNativeComponent('Particle', Particle, {
-  nativeOnly: {},
-});
-
-module.exports = Particle;
