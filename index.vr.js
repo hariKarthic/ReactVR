@@ -26,7 +26,6 @@ export default class ReactVR extends React.Component {
     }
 
     componentDidMount() {
-        console.log("Going to make Async calls!!");
         axios.get("https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=10&regionCode=IN&key=AIzaSyAK5HZ_j5WS1M2brpgrsGj6EDeEwTwHHEc").then((resp) => {
             console.log(resp);
         }).catch((err) => {

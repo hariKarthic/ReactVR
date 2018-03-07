@@ -10,10 +10,10 @@ import camera from "./../camera.vr";
 import * as SimpleRayCaster from "../raycaster.vr";
 
 import scene from "../custom_objects/scene.custom.js";
-import cube from "../custom_objects/cube.custom.js";
+import cone from "../custom_objects/cube.custom.js";
 
 
-scene.add(cube); /*adding the custom cube to the scene*/
+//scene.add(cone); /*adding the custom cube to the scene*/
 
 
 const init = (bundle, parent, options) => {
