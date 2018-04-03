@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "electron": "^1.8.2",
     "ovrui": "^1.4.1",
     "prop-types": "^15.6.1",
     "react": "^15.6.2",
